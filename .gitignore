@@ -1,3 +1,4 @@
+auth_gocardless.sh
 .terraform*
 *.tfstate
 *.tfstate.*
