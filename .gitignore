@@ -1,0 +1,4 @@
+auth_gocardless.sh
+*.tfstate
+*.tfstate.backup
+tmp
