@@ -1,10 +1,16 @@
-resource "random_id" "hex" {
-  byte_length = 2
-}
 
-resource "google_project" "spend_tracker" {
-    name = "spend-tracker"
-    project_id = "spend-tracker-${random_id.hex.hex}"
-    # billing_account = "01A-C1A-A1A"
-}
 
+module "project-factory" {
+  source = "terraform-google-modules/project-factory/google"
+  version = "~> 18.0"
+
+  name = "spend-tracker"
+  random_project_id = true
+  billing_account = var.billing_account
+
+  activate_apis = [
+    "workflows.googleapis.com"
+  ]
+
+  create_project_sa = false
+}
